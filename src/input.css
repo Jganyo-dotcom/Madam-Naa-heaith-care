@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@source "../index.html";
+@source "../**/*.html";
+
+@theme {
+  --color-emerald-900: #064e3b;
+  --color-emerald-800: #115e59;
+  --color-emerald-700: #0f766e;
+  --color-emerald-600: #0d9488;
+  --color-emerald-50: #f0fdfa;
+
+  --color-gold-500: #d97706;
+  --color-gold-600: #b45309;
+  --color-gold-100: #fef3c7;
+
+  --color-coral-500: #f43f5e;
+  --color-coral-600: #e11d48;
+
+  --color-charcoal: #1e293b;
+  --color-mint: #f0fdfa;
+
+  --font-heading: "Playfair Display", "Inter", serif;
+  --font-body: "Plus Jakarta Sans", "Inter", sans-serif;
+
+  --shadow-glow: 0 10px 25px -5px rgba(15, 118, 110, 0.3);
+  --shadow-glow-gold: 0 10px 25px -5px rgba(217, 119, 6, 0.3);
+  --shadow-glow-whatsapp: 0 10px 25px -5px rgba(34, 197, 94, 0.4);
+  --shadow-card-hover: 0 20px 30px -10px rgba(15, 118, 110, 0.15);
+}
