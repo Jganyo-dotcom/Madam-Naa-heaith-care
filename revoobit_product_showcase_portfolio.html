@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Wellness Vitality | Authorized Revoobit Independent Distributor
+    </title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="./dist/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Tailwind CSS -->
+
+
+
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        color: #1e293b;
+        background-color: #ffffff;
+        overflow-x: hidden;
+      }
+
+      /* Glassmorphism Header */
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+
+      /* Scroll Reveal Animation Styles */
+      .reveal {
+        opacity: 0;
+        transform: translateY(35px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Pulsing Glow Effect for CTA */
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
+        }
+        50% {
+          box-shadow: 0 0 30px rgba(34, 197, 94, 0.8);
+        }
+      }
+      .pulse-whatsapp {
+        animation: pulse-glow 3s infinite;
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-emerald-700 selection:text-white">
+    <!-- ==================== 1. STICKY NAVIGATION BAR ==================== -->
+    <header
+      class="fixed top-0 left-0 w-full z-50 glass-nav border-b border-emerald-50 transition-all duration-300"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="#home" class="flex items-center gap-3 group">
+            <div
+              class="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-700 to-emerald-900 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300"
+            >
+              <i class="fa-solid fa-leaf text-xl text-emerald-50"></i>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-heading font-bold text-xl text-emerald-800 leading-tight"
+                >Wellness Vitality</span
+              >
+              <span
+                class="text-[10px] tracking-wider uppercase font-semibold text-gold-600"
+                >Revoobit Distributor</span
+              >
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Links -->
+          <nav class="hidden md:flex items-center space-x-8">
+            <a
+              href="#home"
+              class="text-sm font-semibold text-charcoal hover:text-emerald-700 transition-colors"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-sm font-semibold text-charcoal hover:text-emerald-700 transition-colors"
+              >About & Mission</a
+            >
+            <a
+              href="#products"
+              class="text-sm font-semibold text-charcoal hover:text-emerald-700 transition-colors"
+              >Products</a
+            >
+            <a
+              href="#contact"
+              class="text-sm font-semibold text-charcoal hover:text-emerald-700 transition-colors"
+              >Contact</a
+            >
+          </nav>
+
+          <!-- Desktop Order CTA Button -->
+          <div class="hidden md:flex items-center">
+            <button
+              onclick="openWhatsApp('General Order Query')"
+              class="bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-800 hover:to-emerald-700 text-white font-semibold text-sm px-6 py-3 rounded-full shadow-md hover:shadow-glow transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2"
+            >
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              <span>Order Now</span>
+            </button>
+          </div>
+
+          <!-- Mobile Hamburger Button -->
+          <div class="flex md:hidden">
+            <button
+              id="mobileMenuBtn"
+              type="button"
+              aria-label="Toggle Menu"
+              class="p-2.5 rounded-xl text-charcoal hover:text-emerald-700 hover:bg-emerald-50 focus:outline-none transition-colors"
+            >
+              <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer Overlay Menu -->
+      <div
+        id="mobileDrawer"
+        class="hidden md:hidden bg-white border-b border-emerald-100 shadow-xl transition-all duration-300"
+      >
+        <div class="px-6 pt-4 pb-8 space-y-4">
+          <a
+            href="#home"
+            class="mobile-link block py-3 text-base font-semibold text-charcoal border-b border-gray-100 hover:text-emerald-700"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="mobile-link block py-3 text-base font-semibold text-charcoal border-b border-gray-100 hover:text-emerald-700"
+            >About & Mission</a
+          >
+          <a
+            href="#products"
+            class="mobile-link block py-3 text-base font-semibold text-charcoal border-b border-gray-100 hover:text-emerald-700"
+            >Products</a
+          >
+          <a
+            href="#contact"
+            class="mobile-link block py-3 text-base font-semibold text-charcoal border-b border-gray-100 hover:text-emerald-700"
+            >Contact</a
+          >
+
+          <div class="pt-2">
+            <button
+              onclick="openWhatsApp('General Order Query')"
+              class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold py-3.5 rounded-xl shadow-md flex items-center justify-center gap-2 transition-colors"
+            >
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>Order via WhatsApp</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section
+      id="home"
+      class="relative pt-28 pb-16 md:pt-36 md:pb-24 bg-gradient-to-b from-emerald-50/60 via-white to-white overflow-hidden"
+    >
+      <!-- Decorative Background Orbs -->
+      <div
+        class="absolute -top-24 -left-24 w-96 h-96 bg-emerald-100/60 rounded-full blur-3xl pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-1/2 -right-24 w-96 h-96 bg-gold-100/50 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
+        >
+          <!-- Hero Text Left Column -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left reveal">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-semibold tracking-wide"
+            >
+              <i class="fa-solid fa-certificate text-gold-500"></i>
+              <span>Authorized Independent Revoobit Distributor</span>
+            </div>
+
+            <h1
+              class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-charcoal leading-tight"
+            >
+              Empower Your Body.<br />
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 via-emerald-800 to-gold-600"
+              >
+                Elevate Your Health.
+              </span>
+            </h1>
+
+            <p
+              class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed"
+            >
+              Discover premium, plant-based nutritional supplements designed to
+              nourish your cells, boost energy, and support your daily vitality
+              naturally.
+            </p>
+
+            <!-- CTAs -->
+            <div
+              class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+            >
+              <a
+                href="#products"
+                class="w-full sm:w-auto bg-gradient-to-r from-emerald-700 to-emerald-800 hover:from-emerald-800 hover:to-emerald-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-glow transition-all duration-300 transform hover:-translate-y-1 text-center flex items-center justify-center gap-3"
+              >
+                <span>Browse Products</span>
+                <i class="fa-solid fa-arrow-down text-sm"></i>
+              </a>
+
+              <button
+                onclick="openWhatsApp('Hero Chat Button')"
+                class="w-full sm:w-auto bg-white border-2 border-emerald-700 text-emerald-800 hover:bg-emerald-50 font-semibold px-8 py-4 rounded-full shadow-sm hover:shadow-md transition-all duration-300 flex items-center justify-center gap-3"
+              >
+                <i class="fa-brands fa-whatsapp text-emerald-600 text-xl"></i>
+                <span>Chat on WhatsApp</span>
+              </button>
+            </div>
+
+            <!-- Trust Stats Banner -->
+            <div
+              class="pt-8 grid grid-cols-3 gap-4 border-t border-gray-100 max-w-lg mx-auto lg:mx-0"
+            >
+              <div>
+                <p
+                  class="font-heading text-2xl sm:text-3xl font-bold text-emerald-800"
+                >
+                  100%
+                </p>
+                <p class="text-xs sm:text-sm text-slate-500 font-medium">
+                  Plant Extracts
+                </p>
+              </div>
+              <div>
+                <p
+                  class="font-heading text-2xl sm:text-3xl font-bold text-emerald-800"
+                >
+                  Cellular
+                </p>
+                <p class="text-xs sm:text-sm text-slate-500 font-medium">
+                  Nourishment
+                </p>
+              </div>
+              <div>
+                <p
+                  class="font-heading text-2xl sm:text-3xl font-bold text-emerald-800"
+                >
+                  Direct
+                </p>
+                <p class="text-xs sm:text-sm text-slate-500 font-medium">
+                  Fast Support
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Image Right Column -->
+          <div class="lg:col-span-5 relative reveal">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <!-- Image Container with Rounded Border Frame -->
+              <div
+                class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-emerald-100"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=900&q=80"
+                  alt="Radiant Health and Fresh Fruit Cellular Wellness"
+                  class="w-full h-[420px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
+                />
+
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-emerald-950/40 via-transparent to-transparent"
+                ></div>
+              </div>
+
+              <!-- Floating Trust Badge -->
+              <div
+                class="absolute -bottom-6 -left-6 sm:left-4 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-emerald-100 flex items-center gap-4 max-w-xs"
+              >
+                <div
+                  class="w-12 h-12 rounded-xl bg-gold-100 text-gold-600 flex items-center justify-center shrink-0"
+                >
+                  <i class="fa-solid fa-shield-halved text-2xl"></i>
+                </div>
+                <div>
+                  <p
+                    class="text-xs font-bold text-charcoal uppercase tracking-wider"
+                  >
+                    Quality Assured
+                  </p>
+                  <p class="text-xs text-slate-600 font-medium">
+                    Authentic Revoobit Botanical Formulations
+                  </p>
+                </div>
+              </div>
+
+              <!-- Floating Badge Right Top -->
+              <div
+                class="absolute -top-4 -right-4 sm:right-2 bg-emerald-800 text-white px-4 py-2 rounded-xl shadow-lg font-bold text-xs flex items-center gap-2"
+              >
+                <i class="fa-solid fa-heart-pulse text-coral-500"></i>
+                <span>Cellular Health</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. ABOUT ME / MY MISSION ==================== -->
+    <section id="about" class="py-20 bg-emerald-50/50 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Profile Image / Showcase Card -->
+          <div class="lg:col-span-5 reveal">
+            <div
+              class="bg-white rounded-3xl p-6 shadow-lg border border-emerald-100 relative"
+            >
+              <div
+                class="relative rounded-2xl overflow-hidden mb-6 h-80 sm:h-96 bg-gray-100"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+                  alt="Independent Revoobit Wellness Consultant"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-emerald-900/60 via-transparent to-transparent"
+                ></div>
+                <div class="absolute bottom-4 left-4 right-4 text-white">
+                  <p
+                    class="text-xs uppercase tracking-widest text-gold-100 font-semibold"
+                  >
+                    Your Health Partner
+                  </p>
+                  <h3 class="text-xl font-bold font-heading">
+                    Authorized Wellness Consultant
+                  </h3>
+                </div>
+              </div>
+
+              <div
+                class="flex items-center justify-between p-3 rounded-xl bg-emerald-50 border border-emerald-100"
+              >
+                <div class="flex items-center gap-3">
+                  <i class="fa-solid fa-award text-2xl text-gold-600"></i>
+                  <span class="text-sm font-semibold text-emerald-900"
+                    >Certified Product Specialist</span
+                  >
+                </div>
+                <i
+                  class="fa-solid fa-circle-check text-emerald-600 text-lg"
+                ></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Content & Mission -->
+          <div class="lg:col-span-7 space-y-6 reveal">
+            <div
+              class="inline-flex items-center gap-2 text-emerald-700 font-semibold text-sm uppercase tracking-wider"
+            >
+              <i class="fa-solid fa-bullseye"></i>
+              <span>About My Mission</span>
+            </div>
+
+            <h2
+              class="font-heading text-3xl sm:text-4xl font-bold text-charcoal leading-snug"
+            >
+              Dedicated to Empowering Healthier Lives Through Clean Botanical
+              Nutrition
+            </h2>
+
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+              Welcome! As an authorized independent distributor of
+              <strong>Revoobit products</strong>, my mission is simple: to help
+              individuals and families reclaim their health, energy, and overall
+              wellbeing using clean, fruit-derived cellular nutritional
+              supplements.
+            </p>
+
+            <p class="text-slate-600 text-base leading-relaxed">
+              Modern lifestyles often strip our bodies of essential plant
+              nutrients. Revoobit’s science-backed formulations combine advanced
+              plant-extract technology to nourish your body right at the
+              cellular level. I am here to provide personalized guidance so you
+              select the precise products for your personal health targets.
+            </p>
+
+            <!-- Core Value Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+              <div
+                class="p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div
+                  class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-3"
+                >
+                  <i class="fa-solid fa-leaf text-lg"></i>
+                </div>
+                <h4 class="font-bold text-charcoal text-sm mb-1">
+                  Quality Assurance
+                </h4>
+                <p class="text-xs text-slate-500 leading-normal">
+                  100% genuine and authentic Revoobit products direct from
+                  source.
+                </p>
+              </div>
+
+              <div
+                class="p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div
+                  class="w-10 h-10 rounded-xl bg-gold-100 text-gold-600 flex items-center justify-center mb-3"
+                >
+                  <i class="fa-solid fa-user-doctor text-lg"></i>
+                </div>
+                <h4 class="font-bold text-charcoal text-sm mb-1">
+                  Personal Support
+                </h4>
+                <p class="text-xs text-slate-500 leading-normal">
+                  Direct WhatsApp consultation to assist your wellness journey.
+                </p>
+              </div>
+
+              <div
+                class="p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div
+                  class="w-10 h-10 rounded-xl bg-coral-50 text-coral-500 flex items-center justify-center mb-3"
+                >
+                  <i class="fa-solid fa-truck-fast text-lg"></i>
+                </div>
+                <h4 class="font-bold text-charcoal text-sm mb-1">
+                  Fast Delivery
+                </h4>
+                <p class="text-xs text-slate-500 leading-normal">
+                  Prompt processing & safe door-step delivery for every order.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. PRODUCT SHOWCASE GRID ==================== -->
+    <section id="products" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+          <div
+            class="inline-flex items-center gap-2 text-emerald-700 font-semibold text-sm uppercase tracking-wider mb-2"
+          >
+            <i class="fa-solid fa-capsules"></i>
+            <span>Premium Revoobit Catalog</span>
+          </div>
+          <h2
+            class="font-heading text-3xl sm:text-4xl font-bold text-charcoal mb-4"
+          >
+            Targeted Cellular & Lifestyle Supplements
+          </h2>
+          <p class="text-slate-600 text-base sm:text-lg">
+            Explore our premier range of advanced formulations. Click any item
+            to inquire or order directly via WhatsApp.
+          </p>
+        </div>
+
+        <!-- Products Grid (4 Pre-populated Products) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Product 1: Miira-Cell+ -->
+          <div
+            class="bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col overflow-hidden reveal group"
+          >
+            <div class="relative h-60 bg-emerald-50 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80"
+                alt="Miira-Cell+ Revoobit Supplement"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-4 left-4 bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md"
+              >
+                Top Seller
+              </span>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-heading font-bold text-xl text-charcoal">
+                    Miira-Cell+
+                  </h3>
+                  <span
+                    class="text-emerald-700 font-bold text-sm bg-emerald-50 px-2.5 py-1 rounded-lg"
+                    >Cell Rejuvenation</span
+                  >
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  A high-potency plant-extract blend rich in fruit stem cell
+                  nutrition. Formulated to assist deep cellular regeneration,
+                  immune vitality, and body rejuvenation.
+                </p>
+              </div>
+
+              <div class="pt-2 border-t border-gray-100">
+                <button
+                  onclick="openWhatsApp('Miira-Cell+')"
+                  class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm py-3 px-4 rounded-2xl shadow-md transition-colors flex items-center justify-center gap-2"
+                >
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                  <span>Inquire via WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2: Miira-Curve -->
+          <div
+            class="bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col overflow-hidden reveal group"
+          >
+            <div class="relative h-60 bg-gold-50 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80"
+                alt="Miira-Curve Weight Management Mix"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-4 left-4 bg-gold-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md"
+              >
+                Popular Choice
+              </span>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-heading font-bold text-xl text-charcoal">
+                    Miira-Curve
+                  </h3>
+                  <span
+                    class="text-gold-600 font-bold text-sm bg-gold-100 px-2.5 py-1 rounded-lg"
+                    >Shape & Tone</span
+                  >
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Delicious lifestyle support blend tailored for active weight
+                  management. Helps balance cravings, support digestive health,
+                  and promote natural metabolic tone.
+                </p>
+              </div>
+
+              <div class="pt-2 border-t border-gray-100">
+                <button
+                  onclick="openWhatsApp('Miira-Curve')"
+                  class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm py-3 px-4 rounded-2xl shadow-md transition-colors flex items-center justify-center gap-2"
+                >
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                  <span>Inquire via WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3: Miira-Tiara -->
+          <div
+            class="bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col overflow-hidden reveal group"
+          >
+            <div class="relative h-60 bg-rose-50 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=600&q=80"
+                alt="Miira-Tiara Aesthetic Beauty Formula"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-4 left-4 bg-coral-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md"
+              >
+                Beauty Glow
+              </span>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-heading font-bold text-xl text-charcoal">
+                    Miira-Tiara
+                  </h3>
+                  <span
+                    class="text-coral-600 font-bold text-sm bg-rose-100 px-2.5 py-1 rounded-lg"
+                    >Skin Nourish</span
+                  >
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Advanced botanical aesthetic blend crafted to nourish skin,
+                  hair, and nails from within. Enhances natural radiance,
+                  hydration, and youthful glow.
+                </p>
+              </div>
+
+              <div class="pt-2 border-t border-gray-100">
+                <button
+                  onclick="openWhatsApp('Miira-Tiara')"
+                  class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm py-3 px-4 rounded-2xl shadow-md transition-colors flex items-center justify-center gap-2"
+                >
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                  <span>Inquire via WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 4: Miira-Coffee -->
+          <div
+            class="bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col overflow-hidden reveal group"
+          >
+            <div class="relative h-60 bg-amber-50 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80"
+                alt="Miira-Coffee Premium Arabica Blend"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-4 left-4 bg-amber-800 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md"
+              >
+                Daily Boost
+              </span>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-heading font-bold text-xl text-charcoal">
+                    Miira-Coffee
+                  </h3>
+                  <span
+                    class="text-amber-800 font-bold text-sm bg-amber-100 px-2.5 py-1 rounded-lg"
+                    >Energy & Focus</span
+                  >
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Premium functional Arabica coffee infused with natural
+                  vitality extracts. Delivers sustained energy, sharp mental
+                  clarity, and rich aroma without jitters.
+                </p>
+              </div>
+
+              <div class="pt-2 border-t border-gray-100">
+                <button
+                  onclick="openWhatsApp('Miira-Coffee')"
+                  class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm py-3 px-4 rounded-2xl shadow-md transition-colors flex items-center justify-center gap-2"
+                >
+                  <i class="fa-brands fa-whatsapp text-lg"></i>
+                  <span>Inquire via WhatsApp</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mandatory Legal Disclaimer Card -->
+        <div
+          class="mt-14 max-w-4xl mx-auto bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center reveal"
+        >
+          <p class="text-xs text-slate-500 leading-normal">
+            <strong class="text-slate-700">Disclaimer:</strong> These products
+            are dietary supplements and are not intended to diagnose, treat,
+            cure, or prevent any disease. Statements have not been evaluated by
+            regulatory food and drug authorities. Consult your medical
+            practitioner before starting any dietary supplement regimen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. CONTACT / WHATSAPP CTA FOOTER ==================== -->
+    <footer
+      id="contact"
+      class="bg-gradient-to-br from-emerald-950 via-slate-900 to-emerald-900 text-white pt-20 pb-12 relative overflow-hidden"
+    >
+      <!-- Decorative subtle background ring -->
+      <div
+        class="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-800/20 rounded-full blur-3xl pointer-events-none"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <!-- High Converting WhatsApp Box -->
+        <div
+          class="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 text-center max-w-4xl mx-auto mb-16 backdrop-blur-sm reveal"
+        >
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mb-6 text-3xl"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold mb-4">
+            Ready to Begin Your Wellness Journey?
+          </h2>
+
+          <p
+            class="text-emerald-100/80 text-base sm:text-lg max-w-2xl mx-auto mb-8"
+          >
+            Send me a direct message on WhatsApp for personalized advice,
+            current price lists, or to secure your order today.
+          </p>
+
+          <button
+            onclick="openWhatsApp('General Footer Inquiry')"
+            class="pulse-whatsapp bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-lg px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center gap-3 shadow-glow-whatsapp"
+          >
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <span>Message Me on WhatsApp</span>
+          </button>
+        </div>
+
+        <!-- Footer Navigation & Metadata -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-12 gap-8 py-10 border-t border-white/10 text-sm text-slate-300"
+        >
+          <!-- Brand Info -->
+          <div class="md:col-span-5 space-y-4">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-9 h-9 rounded-xl bg-emerald-700 flex items-center justify-center text-white font-bold"
+              >
+                <i class="fa-solid fa-leaf"></i>
+              </div>
+              <span class="font-heading font-bold text-xl text-white"
+                >Wellness Vitality</span
+              >
+            </div>
+            <p
+              class="text-slate-400 text-xs sm:text-sm max-w-sm leading-relaxed"
+            >
+              Authorized Independent Distributor for Revoobit product
+              formulations. Committed to helping clients achieve optimal
+              lifestyle wellness through plant-derived nutrition.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="md:col-span-4 space-y-3">
+            <p class="font-bold text-white uppercase text-xs tracking-wider">
+              Quick Navigation
+            </p>
+            <div class="flex flex-col space-y-2 text-xs sm:text-sm">
+              <a href="#home" class="hover:text-emerald-400 transition-colors"
+                >Home</a
+              >
+              <a href="#about" class="hover:text-emerald-400 transition-colors"
+                >About & Mission</a
+              >
+              <a
+                href="#products"
+                class="hover:text-emerald-400 transition-colors"
+                >Products Showcase</a
+              >
+              <a
+                href="#contact"
+                class="hover:text-emerald-400 transition-colors"
+                >WhatsApp Order Link</a
+              >
+            </div>
+          </div>
+
+          <!-- Direct Support Contact -->
+          <div class="md:col-span-3 space-y-3">
+            <p class="font-bold text-white uppercase text-xs tracking-wider">
+              Direct Order Support
+            </p>
+            <p class="text-xs text-slate-400">
+              Available Monday – Saturday for consultations & dispatch.
+            </p>
+            <div class="pt-2">
+              <button
+                onclick="openWhatsApp('Direct Footer Button')"
+                class="text-xs text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/10 px-4 py-2 rounded-xl transition-colors inline-flex items-center gap-2"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Chat Directly</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright & Legal Note -->
+        <div
+          class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4"
+        >
+          <p>
+            &copy; <span id="year"></span> Wellness Vitality. All rights
+            reserved.
+          </p>
+          <p class="italic">
+            Authorized Independent Revoobit Distributor Portfolio
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT INTERACTIVITY ==================== -->
+    <script>
+      // 1. WhatsApp Dynamic Link Builder
+      const WHATSAPP_NUMBER = "15551234567"; // Replace with your target WhatsApp Phone Number
+
+      function openWhatsApp(productOrContext) {
+        let defaultMessage = "";
+
+        if (
+          productOrContext === "Hero Chat Button" ||
+          productOrContext === "General Order Query" ||
+          productOrContext === "General Footer Inquiry" ||
+          productOrContext === "Direct Footer Button"
+        ) {
+          defaultMessage =
+            "Hello! I visited your Revoobit Wellness website and would like to inquire about ordering your health supplements.";
+        } else {
+          defaultMessage = `Hello! I am interested in ordering ${productOrContext}. Please share pricing details, availability, and delivery info.`;
+        }
+
+        const encodedMsg = encodeURIComponent(defaultMessage);
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMsg}`;
+        window.open(waUrl, "_blank");
+      }
+
+      // 2. Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileDrawer = document.getElementById("mobileDrawer");
+      const menuIcon = document.getElementById("menuIcon");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      if (mobileMenuBtn && mobileDrawer) {
+        mobileMenuBtn.addEventListener("click", () => {
+          const isHidden = mobileDrawer.classList.contains("hidden");
+          if (isHidden) {
+            mobileDrawer.classList.remove("hidden");
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-xmark");
+          } else {
+            mobileDrawer.classList.add("hidden");
+            menuIcon.classList.remove("fa-xmark");
+            menuIcon.classList.add("fa-bars");
+          }
+        });
+
+        // Close mobile menu on menu link click
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileDrawer.classList.add("hidden");
+            menuIcon.classList.remove("fa-xmark");
+            menuIcon.classList.add("fa-bars");
+          });
+        });
+      }
+
+      // 3. Scroll Reveal Animations via Intersection Observer
+      document.addEventListener("DOMContentLoaded", () => {
+        const observerOptions = {
+          root: null,
+          threshold: 0.12,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        const revealElements = document.querySelectorAll(".reveal");
+        revealElements.forEach((el) => revealObserver.observe(el));
+
+        // Set current copyright year
+        const yearSpan = document.getElementById("year");
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear();
+        }
+      });
+
+      // 4. Navbar Shadow Effect on Scroll
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (navbar) {
+          if (window.scrollY > 20) {
+            navbar.classList.add("shadow-md");
+          } else {
+            navbar.classList.remove("shadow-md");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
